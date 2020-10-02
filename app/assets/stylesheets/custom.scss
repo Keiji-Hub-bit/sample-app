@@ -57,15 +57,41 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  font-style:italic;
+  
 }
 
 #logo:hover {
-  color: #fff;
+  color: #808080;
   text-decoration: none;
+}
+#header{
+  background:teal;
+}
+
+
+#headerlist {
+   color: #FFFFFF;
+   font-weight: bold;
+}
+
+#headerlist:hover {
+   background:none;
+   color: #808080;
+   text-decoration: none;
+   text-transform: none;
+}
+
+#top-main {
+    background-color: rgba(255,255,255,0);
+}
+#top-main-title {
+    font-style: italic;
+    font-weight: bold;
 }
 
 /* デバッグウインドウ */
