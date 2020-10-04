@@ -22,6 +22,15 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+#table-user {
+    table-layout: fixed;
+    width: 100%;
+}
+#table-user th {
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+}
 
 /* タイポグラフィ */
 
@@ -66,25 +75,74 @@ p {
 }
 
 #logo:hover {
-  color: #808080;
+  color: #C0C0C0;
   text-decoration: none;
 }
 #header{
   background:teal;
 }
-
-
-#headerlist {
-   color: #FFFFFF;
-   font-weight: bold;
+li .dropdown-header {
+    background-color: rgba(200,200,200,0.5);
+    font-weight: bold;
 }
+#dropdown-title {
+    background-color: teal;
+    color: #FFFFFF;
+    font-weight: bold;
+}    
+#dropdown-title:hover {
+    background:none;
+    color: #C0C0C0;
+}    
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    color: #777777;
+    white-space: nowrap;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+#headerlist {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
 
 #headerlist:hover {
    background:none;
-   color: #808080;
+   color: #C0C0C0;
    text-decoration: none;
    text-transform: none;
 }
+
+/* タグ */
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+
 
 #top-main {
     background-color: rgba(255,255,255,0);
@@ -93,6 +151,8 @@ p {
     font-style: italic;
     font-weight: bold;
 }
+
+
 
 /* デバッグウインドウ */
 
