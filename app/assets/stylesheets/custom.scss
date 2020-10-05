@@ -81,7 +81,7 @@ p {
 #header{
   background:teal;
 }
-li .dropdown-header {
+.dropdown-header {
     background-color: rgba(200,200,200,0.5);
     font-weight: bold;
 }
@@ -94,20 +94,11 @@ li .dropdown-header {
     background:none;
     color: #C0C0C0;
 }    
-.dropdown-header {
-    display: block;
-    padding: 3px 20px;
-    font-size: 12px;
-    line-height: 1.428571429;
-    color: #777777;
-    white-space: nowrap;
-}
+
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
     z-index: 1000;
-    display: none;
     float: left;
     min-width: 160px;
     padding: 5px 0;
@@ -117,10 +108,19 @@ li .dropdown-header {
     list-style: none;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 }
+
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    color: #777777;
+    white-space: nowrap;
+}
+
 #headerlist {
     color: #FFFFFF;
     font-weight: bold;
@@ -152,7 +152,13 @@ a {
     font-weight: bold;
 }
 
+.btn-form {
+    margin-top: 10px;
+}
 
+.label-form {
+    margin-top: 5px;
+}
 
 /* デバッグウインドウ */
 
