@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'tasks/new'
-
+  get 'tasks/new', to: 'tasks#new'
+  
   root 'static_pages#top'
   get '/signup', to: 'users#new'
   

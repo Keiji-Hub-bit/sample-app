@@ -5,17 +5,19 @@
       <ul class="nav navbar-nav navbar-right">
         <li ><%= link_to "トップ", root_path ,id:"headerlist" %></li>
         <% if logged_in? %>
+         <% if current_user.admin? && !current_user?(@user) %>
           <li ><%= link_to '利用者一覧',users_path,id:"headerlist"  %></li>
-          <li ><%= link_to 'タスク作成','#',id:"headerlist"  %></li>
+          <% end %>
+          <li ><%= link_to 'タスク作成',tasks_new_path,id:"headerlist"  %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle　header-list " data-toggle="dropdown" id="dropdown-title"
              aria-expanded = "true"><%=current_user.name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-            　<li class="dropdown-header">ユーザー</li>
+             <li class="dropdown-header">ユーザー</li>
               <li><%= link_to "プロフィール", current_user %></li>
               <li><%= link_to "設定", '#' %></li>
               <li class="dropdown-header">タスク</li>
-              <li><%= link_to "タスク一覧", '#' %></li>
+              <li><%= link_to "タスク一覧", 'tasks' %></li>
               <li class="divider"></li>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>

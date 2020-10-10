@@ -93,7 +93,10 @@ p {
 #dropdown-title:hover {
     background:none;
     color: #C0C0C0;
-}    
+}
+.dropdown-menu {
+    display: block;
+}
 
 .dropdown-menu {
     position: absolute;
