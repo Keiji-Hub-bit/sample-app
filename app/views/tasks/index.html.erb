@@ -1,7 +1,7 @@
-<h1>管理者のタスク一覧</h1>
+<h1><%=current_user.name%>のタスク一覧</h1>
 <div class = "row">
  <div class="col-md-10 col-md-offset-1">
-    <a class="btn btn-lg btn-primary pull-right" href="/users/1/tasks/new">タスク新規作成</a>
+    <a class="btn btn-lg btn-primary pull-right" href="/tasks/new">タスク新規作成</a>
     <table class="table table-hover" id="table-tasks">
       <thead>
         <tr>
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-      	
+      	<td><a id="task-name" href="/tasks"></a></td>
       </tbody>
     </table>
  </div>

@@ -81,6 +81,7 @@ p {
 #header{
   background:teal;
 }
+
 .dropdown-header {
     background-color: rgba(200,200,200,0.5);
     font-weight: bold;
@@ -111,6 +112,7 @@ p {
     list-style: none;
     background-color: #fff;
     background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 }
@@ -124,6 +126,10 @@ p {
     white-space: nowrap;
 }
 
+.dropdown-menu {
+    display: none;
+}
+  
 #headerlist {
     color: #FFFFFF;
     font-weight: bold;
