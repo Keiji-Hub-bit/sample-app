@@ -11,8 +11,18 @@
         </tr>
       </thead>
       <tbody>
-      	<td><a id="task-name" href="/tasks"></a></td>
-      </tbody>
+    
+        <!--<td><a id= "task-name" href=#></a><#= @task %></td>-->
+        <!--<td>2020/10/14 </td>-->
+       
+       <td><% @task.each do |task| %>
+           <%= link_to task.name,task_path(task.id)%>
+            <% end %></td>
+      <td>time.sta</td>>
+      <td><a class="btn btn-success " href="/tasks/edit">編集</a>
+      <a class="btn btn-danger " rel="nofollow" data-method="delete" href="/tasks/">削除</a></td>
+      
+     </tbody>
     </table>
- </div>
+  </div>
 </div>

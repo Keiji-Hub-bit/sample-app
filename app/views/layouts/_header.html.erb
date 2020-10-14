@@ -8,7 +8,7 @@
          <% if current_user.admin?  %>
           <li><%= link_to '利用者一覧',users_path,id:"headerlist"  %></li>
           <% end %>
-          <li><%= link_to 'タスク作成',tasks_new_path,id:"headerlist"%></li>
+          <li><%= link_to 'タスク作成',new_task_path,id:"headerlist"%></li>
          <li class="dropdown">
             <a class="btn btn-secondry dropdown-toggle header-list" data-toggle="dropdown"  id="dropdown-title"  aria-haspopup="true" aria-expanded="false">
             <%=current_user.name %> <b class="caret"></b></a>
