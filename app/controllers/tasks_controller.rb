@@ -1,32 +1,29 @@
 class TasksController < ApplicationController
-  
-  protect_from_forgery
-  def new
-    @task = Task.new
-  end
+protect_from_forgery
   
   def index
-    @task = Task.all
+    @tasks = Task.all
   end
   
   def show
     
   end
- 
+  
   def edit
     @task = Task.find(params[:id])
   end
   
+  def new
+    @task = Task.new
+  end
+  
   def create
-    @task = Task.new(
-      name:params[:name],
-      user_id: @current_user.id,
-      )
+    @task = Task.new(name: params[:name])
     if @task.save
-    flash[:notice] = 'タスクを新規作成しました。'
-    redirect_to tasks_url
+      flash[:success] = 'タスクを新規作成しました。'
+      redirect_to tasks_url
     else
-    render :new
+      render:new
     end
   end
 end

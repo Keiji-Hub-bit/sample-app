@@ -1,27 +1,17 @@
-
 <h1>タスク新規作成</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <!--<form action="/tasks" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jrnSH39cTlgCmooD7me21T59tub2Sv5g9sV5wglaJubzVLTx8hyo28bhO5CaS4IQL+Pn5rutGX3Ngmyg1axWFg==">-->
-    <!--</form>  -->
-      <%= form_with(model: @task, local:true)do |f|%>     
-
-      <!--<label class="label-form" for="task_name">名称</label>-->
-      <!--<input class="form-control" type="text" name="task[name]">-->
-      
-      <%= f.label :name, class: "label-form" %>
-      <!--<= f.text_field :name, class: "form-control" %>-->
-      <textarea rows="1" class="form-control" name="task[name]"></textarea>
-       <!--<label class="label-form" for="task_description">詳細</label>-->
-     
-      <%= f.label :description, class: "label-form" %>
-      <textarea rows="5" class="form-control" name="task[description]"></textarea>
-      <!--<= f.description_field :name,rows="5", class="form-control"%>-->
-     <!--<input type="submit" name="commit" value="新規登録" class="btn btn-lg btn-primary btn-form" data-disable-with="新規登録">-->
-      <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>　 
-      <% end %>
+   
+    <%= form_with(model: @task, local:true)do |f|%>
+          
+          <%= f.label :name, class: "label-form" %>
+          <%= f.text_field :name, class:"form-control" %>
+          
+          <%= f.label :description, class: "label-form" %>
+          <textarea rows="5" class="form-control" name="task[description]"></textarea>
+         
+          <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
+     <% end %>
   </div>
 </div>
-
-

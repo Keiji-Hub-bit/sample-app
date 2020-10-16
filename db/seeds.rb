@@ -13,5 +13,6 @@ User.create!( name: "管理者",
  User.create!(name: name,
               email: email,
               password: password,
-              password_confirmation: password)
+              password_confirmation: password,
+              admin: true)
 end

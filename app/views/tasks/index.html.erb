@@ -1,8 +1,8 @@
 <h1><%=current_user.name%>のタスク一覧</h1>
 <div class = "row">
- <div class="col-md-10 col-md-offset-1">
-    <a class="btn btn-lg btn-primary pull-right" href="/tasks/new">タスク新規作成</a>
-    <table class="table table-hover" id="table-tasks">
+  <div class="col-md-10 col-md-offset-1">
+     <a class="btn btn-lg btn-primary pull-right" href="/tasks/new">タスク新規作成</a>
+     <table class="table table-hover" id="table-tasks">
       <thead>
         <tr>
           <th>名称</th>
@@ -10,19 +10,20 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-    
-        <!--<td><a id= "task-name" href=#></a><#= @task %></td>-->
-        <!--<td>2020/10/14 </td>-->
-       
-       <td><% @task.each do |task| %>
-           <%= link_to task.name,task_path(task.id)%>
-            <% end %></td>
-      <td>time.sta</td>>
-      <td><a class="btn btn-success " href="/tasks/edit">編集</a>
-      <a class="btn btn-danger " rel="nofollow" data-method="delete" href="/tasks/">削除</a></td>
-      
-     </tbody>
-    </table>
+       <tbody>
+       <!--<td><a id= "task-name" href=#></a><#= @task %></td>-->
+        <td>
+          <% @tasks.each do |task| %>
+            <%= link_to "task.name",task_path(task.id)%>
+          <% end %>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <a class="btn btn-success " href="/tasks/edit">編集</a>
+          <a class="btn btn-danger " rel="nofollow" data-method="delete" href="/tasks/">削除</a>
+        </td>
+      </tbody>
+     </table>
   </div>
 </div>
