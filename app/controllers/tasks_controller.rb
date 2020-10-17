@@ -20,7 +20,8 @@ protect_from_forgery
     
     def update
       @task = Task.find(params[:id])
-      redirect_to tasks_url
+      @task = current_user.tasks.build(task_params)
+      redirect_to task_url
     end
     
     def create
