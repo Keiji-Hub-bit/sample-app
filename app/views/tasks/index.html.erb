@@ -6,6 +6,8 @@
       <thead>
         <tr>
           <th>名称</th>
+          <th><input type ="hidden" 詳細></th>
+          <th></th>
           <th></th>
           <th></th>
           <th></th>
@@ -20,10 +22,12 @@
          <% @tasks.each do |task| %>
          <tr>
           <td><%= task.name %></td>
+          <td><input type ="hidden"<%= task.description %>></td>
           <td></td>
           <td></td>
           <td></td>
-         <td><%= task.created_at %></td>
+          <td></td>
+          <td><%= task.created_at %></td>
           <td></td>
           <td></td>
           <td></td>
@@ -32,7 +36,8 @@
           <td></td>
           <td></td>
           <td>
-              <a class="btn btn-success " href="/tasks/edit">編集</a>
+              <%= link_to "編集",edit_task_path(task.id),class: "btn btn-success"%>
+              <!--<a class="btn btn-success " href="/tasks/:id/edit(:user_id)">編集</a>-->
               <a class="btn btn-danger " rel="nofollow" data-method="delete" href="/tasks/">削除</a>
           </td>
          </tr>
