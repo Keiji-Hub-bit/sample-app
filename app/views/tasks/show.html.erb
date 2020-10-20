@@ -1,3 +1,5 @@
+
+<div class="alert alert-success">タスクを更新しました。</div>
 <h1>タスク詳細</h1>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
@@ -17,11 +19,12 @@
         </tr>
         <tr>
           <th class="active">作成日</th>
-          <td><%= @task.created_at %></td>
+          <td><%= l @task.created_at %></td>
         </tr>
         <tr>
           <th class="active">更新日</th>
-          <td></td>
+          <td><%= l @task.updated_at
+          %></td>
         </tr>
       </tbody>
     </table>
@@ -29,7 +32,7 @@
     <div>
       <%= link_to "編集",edit_task_path(@task.id),class: "btn btn-lg btn-success" %>
       
-      <a data-confirm="を削除します。よろしいですか？" class="btn btn-lg btn-danger" rel="nofollow" data-method="delete" href="/tasks/:id">削除</a>
+      <a data-confirm="<%=@task.name%>を削除します。よろしいですか？" class="btn btn-lg btn-danger" rel="nofollow" data-method="delete" href="/tasks/:id">削除</a>
     </div>
   </div>    
 </div>

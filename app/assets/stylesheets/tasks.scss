@@ -53,3 +53,22 @@ body {
     background-color: #fff;
     border-color: #ccc;
 }
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+#table-task th {
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+}
