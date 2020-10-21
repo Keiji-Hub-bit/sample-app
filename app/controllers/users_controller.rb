@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      
+      @user.save
       flash[:success] = "ユーザー情報を更新しました"
       redirect_to @user
     else
