@@ -5,6 +5,20 @@
    
     <%= form_with(model: @task,  url:tasks_path, local:true)do |f|%>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+           
+           
+          <% if @task.errors.any? %>
+              <div id="error_explanation">
+                 <div class="alert alert-danger">
+                    The form contains <%= pluralize(@task.errors.count, "error") %>.
+                </div>
+                <ul>
+                <% @task.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+             </div>
+          <% end %>
           
           <%= f.label :name, class: "label-form" %>
           <%= f.text_field :name, class:"form-control" %>

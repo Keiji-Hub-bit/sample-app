@@ -67,8 +67,27 @@ body {
     border-color: inherit;
 }
 
+
+
 #table-task th {
     vertical-align: middle;
     white-space: nowrap;
     text-align: center;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+#error_explanation {
+    color: red;
 }

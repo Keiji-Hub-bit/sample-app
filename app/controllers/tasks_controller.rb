@@ -22,6 +22,7 @@ protect_from_forgery
           @task = Task.find(params[:id])
           @task.update(task_params)
           @task.save
+          flash[:success] = 'タスクを編集しました。'
           redirect_to task_url
       end 
       
