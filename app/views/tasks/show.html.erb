@@ -30,8 +30,7 @@
     
     <div>
       <%= link_to "編集",edit_task_path(@task.id),class: "btn btn-lg btn-success" %>
-      
-      <a data-confirm="<%=@task.name%>を削除します。よろしいですか？" class="btn btn-lg btn-danger" rel="nofollow" data-method="delete" href="/tasks/:id">削除</a>
+      <%= link_to "削除",task_path(@task.id), method: :delete, data: { confirm: "を削除します。よろしいですか？" },class: "btn btn-lg btn-danger" %>
     </div>
   </div>    
 </div>
