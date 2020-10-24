@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
 protect_from_forgery
-  
+
       def index
-          @tasks = Task.all
-        
+          
+          @tasks = current_user.tasks
       end
       
       def show
@@ -50,4 +50,15 @@ protect_from_forgery
       def task_params
          params.require(:task).permit(:name,:created_at,:description,:updated_at)
       end
+      
+      def logged_in_user
+       unless logged_in?
+         flash[:danger] = "ログインしてください。"
+         redirect_to login_url
+       end
+      end
+     def correct_user
+        @task = Task.find(params[:id])
+        redirect_to(root_url) unless current_user?(@user)
+     end
 end
