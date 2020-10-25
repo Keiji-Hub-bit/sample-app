@@ -1,9 +1,11 @@
 <h1><%= current_user.name %>のタスク一覧</h1>
+	
 <div class = "row">
   <div class="col-md-10 col-md-offset-1">
      <a class="btn btn-lg btn-primary pull-right" href="/tasks/new">タスク新規作成</a>
+     <%= will_paginate %>
      <table class="table table-hover" id="table-tasks">
-      <thead>
+        <thead>
         <tr>
               <th>名称</th>
               <th><input type ="hidden" 詳細></th>
@@ -60,6 +62,7 @@
          </tr>
         <% end %>
        </tbody>
-     </table>
+       </table>
+      <%= will_paginate %>
   </div>
 </div>

@@ -2,8 +2,10 @@ class TasksController < ApplicationController
 protect_from_forgery
 
       def index
-          
-          @tasks = current_user.tasks
+          @user  = User.find(params[:id])
+          @tasks = current_user.tasks.paginate(page:params[:page])
+        #   @tasks = current_user.tasks
+         
       end
       
       def show
@@ -15,7 +17,10 @@ protect_from_forgery
       end
       
       def new
-          @task = Task.new
+      @user = User.find(params[:id])
+      @task = Task.find(params[:id])
+      @task = Task.new
+     
       end
       
       def update

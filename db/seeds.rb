@@ -15,3 +15,13 @@ User.create!( name: "管理者",
               password: password,
               password_confirmation: password)
 end
+
+Task.create!( name: "管理者",
+              description: "サンプル詳細")
+              
+50.times do|n|
+ name = Faker::Name.name
+ description = "サンプル詳細#{n+1}"
+ Task.create!(name: name,
+              description: description)
+end
