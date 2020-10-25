@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 protect_from_forgery
 
       def index
-          @user  = User.find(params[:id])
+         
           @tasks = current_user.tasks.paginate(page:params[:page])
         #   @tasks = current_user.tasks
          
@@ -15,12 +15,10 @@ protect_from_forgery
       def edit
           @task = Task.find(params[:id])
       end
-      
+ 
       def new
-      @user = User.find(params[:id])
-      @task = Task.find(params[:id])
-      @task = Task.new
-     
+          
+          @task = Task.new
       end
       
       def update
@@ -35,6 +33,7 @@ protect_from_forgery
       
       def create
           # @task = Task.new(task_params)
+         
           @task = current_user.tasks.build(task_params)
           if @task.save
           flash[:success] = 'タスクを新規作成しました。'
