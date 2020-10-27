@@ -17,17 +17,17 @@ protect_from_forgery
       end
  
       def new
-          
           @task = Task.new
       end
       
       def update
           @task = Task.find(params[:id])
           if @task.update(task_params)
+             @task.save
           flash[:success] = 'タスクを更新しました。'
-           redirect_to task_url
+            redirect_to task_url
           else
-           render :edit
+            render :edit
           end
       end 
       
