@@ -2,8 +2,9 @@ class TasksController < ApplicationController
 protect_from_forgery
 
       def index
-         
-          @tasks = current_user.tasks.paginate(page:params[:page])
+        
+          @tasks = current_user.tasks.order(created_at: :desc).paginate(page:params[:page])
+        
         #   @tasks = current_user.tasks
          
       end
