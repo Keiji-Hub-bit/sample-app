@@ -8,24 +8,8 @@
         <thead>
         <tr>
               <th>名称</th>
-              <th><input type ="hidden" 詳細></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <!--<th><input type ="hidden" 詳細></th>-->
               <th>作成日</th>
-              <th></th>
               <th></th>
         </tr>
       </thead>
@@ -33,24 +17,8 @@
          <% @tasks.each do |task| %>
          <tr>
               <td><%= link_to task.name,task_path(task.id) %></td>
-              <td><input type ="hidden"<%= task.description %>></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <!--<td><input type ="hidden"<%= task.description %>></td-->
               <td><%= l task.created_at %></td>
-              <td></td>
               <td></td>
               <td>
                   <%= link_to "編集",edit_task_path(task.id),class: "btn btn-success"%>
@@ -62,7 +30,7 @@
          </tr>
         <% end %>
        </tbody>
-       </table>
+      </table>
       <%= will_paginate %>
   </div>
 </div>
