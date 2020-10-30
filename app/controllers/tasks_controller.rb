@@ -2,10 +2,10 @@ class TasksController < ApplicationController
 protect_from_forgery
 
       def index
-        　@tasks = current_user.tasks.order(created_at: :desc).paginate(page:params[:page])
+       
+          @tasks = current_user.tasks.order(created_at: :desc).paginate(page:params[:page])
         
         #   @tasks = current_user.tasks
-         
       end
       
       def show
@@ -14,6 +14,7 @@ protect_from_forgery
       end
       
       def edit
+         
           @task = Task.find(params[:id])
       end
  
@@ -22,14 +23,15 @@ protect_from_forgery
       end
       
       def update
+         
           @task = Task.find(params[:id])
-          if @task.update(task_params)
-             @task.save
-          flash[:success] = 'タスクを更新しました。'
+         if @task.update(task_params)
+            @task.save
+            flash[:success] = 'タスクを更新しました。'
             redirect_to task_url
-          else
+         else
             render :edit
-          end
+         end
       end 
       
       def create
