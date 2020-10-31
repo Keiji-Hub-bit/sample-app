@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 protect_from_forgery
-before_action :limitation_correct_user,only:[:new]
+before_action :correct_user ,only: [:create,:destroy]
 
 
       def index
@@ -11,9 +11,8 @@ before_action :limitation_correct_user,only:[:new]
       end
       
       def show
+          @user = User.find(params[:user_id])
           @task = Task.find(params[:id])
-         
-          
       end
       
       def edit
@@ -31,7 +30,7 @@ before_action :limitation_correct_user,only:[:new]
          if @task.update(task_params)
             @task.save
             flash[:success] = 'タスクを更新しました。'
-            redirect_to task_url
+            redirect_to user_task_url
          else
             render :edit
          end
@@ -43,7 +42,7 @@ before_action :limitation_correct_user,only:[:new]
           @task = current_user.tasks.build(task_params)
           if @task.save
           flash[:success] = 'タスクを新規作成しました。'
-          redirect_to tasks_url
+          redirect_to user_tasks_url
           else
             render :new
           end
@@ -52,8 +51,8 @@ before_action :limitation_correct_user,only:[:new]
       def destroy
           @task = Task.find(params[:id])
           @task.destroy
-           flash[:success] = "投稿を削除しました。"
-          redirect_to tasks_url
+          flash[:success] = "投稿を削除しました。"
+          redirect_to user_tasks_url
       end
       
   private
@@ -67,15 +66,28 @@ before_action :limitation_correct_user,only:[:new]
          redirect_to login_url
        end
       end
+      
      def correct_user
-        @task = Task.find(params[:id])
-        redirect_to(root_url) unless current_user?(@user)
+        unless current_user?(@user)
+        flash[:danger] = "他のユーザーのタスクは作成できません"
+         redirect_to(root_url) unless current_user?(@user)
+        end
      end
+    #     @task = Task.find(params[:id])
+    #     redirect_to(root_url) unless current_user?(@user)
+    # end
      
      def limitation_correct_user
         unless @current_user.id == params[:id].to_i
         flash[:danger] = "他のユーザーのﾀｸｽは作成できません"
         redirect_to root_url
         end    
+     end
+     
+     def set_task
+        unless @task = @user.tasks.find_by(id:params[:id])
+        flash[:danger] = "他のユーザーのﾀｸｽは作成できません"
+        redirect_to root_url
+        end
      end
 end
