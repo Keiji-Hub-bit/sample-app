@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           
-          <form action= "/users/<%= @task.id%>/tasks/<%= @task.id%>" accept-charset="UTF-8" method="post">
+          <form action= "/users/<%= @user.id %>/tasks/<%= @task.id %>" accept-charset="UTF-8" method="post">
             <input name="utf8" type="hidden" value="✓">          
             <input type="hidden" name="_method" value="patch">
             <input type="hidden" name="authenticity_token" value="LHLM3cdwGJ0P5zj2/LlXINLBXA1Ha/b0AczHVCobey44dTSLQ3H5Pb2I5HHMf+24wCepQicOqSkxdzI5T3aYeA==">
@@ -16,14 +16,14 @@
                  <div class="alert alert-danger">
                    入力エラーが<%= @task.errors.count %>件あります。
                     <!--The form contains <%= pluralize(@task.errors.count, "error") %>.-->
-                </div>
-                <ul>
-                <% @task.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-                </ul>
-             </div>
-          <% end %>
+                 </div>
+                    <ul>
+                    <% @task.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                    </ul>
+              </div>
+             <% end %>
             
             <label class="label-form" for="task_name">名称</label>
             <input class="form-control" type="text" value="<%=@task.name%>" name="task[name]">

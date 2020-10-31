@@ -1,21 +1,24 @@
 class TasksController < ApplicationController
 protect_from_forgery
+before_action :limitation_correct_user,only:[:new]
+
 
       def index
-       
+          @user =  User.find(params[:user_id])
           @tasks = current_user.tasks.order(created_at: :desc).paginate(page:params[:page])
-        
+          
         #   @tasks = current_user.tasks
       end
       
       def show
           @task = Task.find(params[:id])
+         
           
       end
       
       def edit
-         
           @task = Task.find(params[:id])
+          @user = @task.user
       end
  
       def new
@@ -24,7 +27,7 @@ protect_from_forgery
       
       def update
          
-          @task = Task.find(params[:id])
+         @task = Task.find(params[:id])
          if @task.update(task_params)
             @task.save
             flash[:success] = 'タスクを更新しました。'
@@ -67,5 +70,12 @@ protect_from_forgery
      def correct_user
         @task = Task.find(params[:id])
         redirect_to(root_url) unless current_user?(@user)
+     end
+     
+     def limitation_correct_user
+        unless @current_user.id == params[:id].to_i
+        flash[:danger] = "他のユーザーのﾀｸｽは作成できません"
+        redirect_to root_url
+        end    
      end
 end

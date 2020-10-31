@@ -16,14 +16,14 @@
        <tbody>
          <% @tasks.each do |task| %>
          <tr>
-              <td><%= link_to task.name,task_path(current_user.id,task.id) %></td>
+              <td><%= link_to task.name,user_task_path(@user,task) %></td>
               <!--<td><input type ="hidden"<%= task.description %>></td-->
               <td><%= l task.created_at %></td>
               <td></td>
               <td>
-                  <%= link_to "編集",edit_task_path(current_user.id,task.id),class: "btn btn-success"%>
+                  <%= link_to "編集",edit_user_task_path(@user,task),class: "btn btn-success"%>
                   <!--<a class="btn btn-success " href="/tasks/:id/edit(:user_id)">編集</a>-->
-                  <%= link_to "削除",task_path(task.id), method: :delete,  data: { confirm: "#{task.name}を削除します。よろしいですか？" }, class: "btn btn-danger"%>
+                  <%= link_to "削除",user_task_path(@user,task), method: :delete,  data: { confirm: "#{task.name}を削除します。よろしいですか？" }, class: "btn btn-danger"%>
                   <!--<a data-confirm="「10月17日」を削除します。よろしいですか？" class="btn btn-danger" rel="nofollow" data-method="delete" href="/users/1/tasks/857">削除</a>-->
                   <!--<a class="btn btn-danger " rel="nofollow" data-method="delete" href="/tasks/">削除</a>-->
               </td>
