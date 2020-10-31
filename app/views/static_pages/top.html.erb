@@ -7,7 +7,7 @@
           <p>TaskAppは簡易ToDo管理ツールです。</p>
           <p>↓↓初めてのご利用↓↓</p>
             <%  logged_in? %>
-            <% if current_user.admin?  %>
+            <% if @user.admin? %>
               <a class="btn btn-lg btn-success" href="/signup">アカウント作成</a>
                 <div style="margin-top: 10px;">
                   <a class="btn btn-danger" href="/guest-admin/login">ゲストログイン（管理権限）</a>
@@ -23,13 +23,13 @@
     <h1>ログイン</h1>
     <% if logged_in? %>
     <form action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="GNrL9/4XJqHdMHue6kGTnVpx77M2FNKDxSWFbrvW5Xvf+ZznnT6oHgTlWNN2HCFOs4W/x0QKO4lj+YOkY3Q/7A==">
-       <label class="label-form" for="session_email">メールアドレス</label>
-       <input class="form-control" readonly="readonly" type="email" name="session[email]">
-  
-        <label class="label-form" for="session_password">パスワード</label>
-        <input class="form-control" readonly="readonly" type="password" name="session[password]">
-        
-        <input type="submit" name="commit" value="ログイン状態です" class="btn btn-primary btn-block btn-form" disabled="disabled" data-disable-with="ログイン状態です">
+          <label class="label-form" for="session_email">メールアドレス</label>
+          <input class="form-control" readonly="readonly" type="email" name="session[email]">
+    
+          <label class="label-form" for="session_password">パスワード</label>
+          <input class="form-control" readonly="readonly" type="password" name="session[password]">
+          
+          <input type="submit" name="commit" value="ログイン状態です" class="btn btn-primary btn-block btn-form" disabled="disabled" data-disable-with="ログイン状態です">
     </form>
     <% else %>
     <form action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="GNrL9/4XJqHdMHue6kGTnVpx77M2FNKDxSWFbrvW5Xvf+ZznnT6oHgTlWNN2HCFOs4W/x0QKO4lj+YOkY3Q/7A==">
@@ -41,7 +41,7 @@
 
         <label class="checkbox inline checkbox-login" for="remember-me">
         <input name="session[remember_me]" type="hidden" value="0"><input id="remember-me" type="checkbox" value="1" name="session[remember_me]">
-          <span>ログイン情報を記憶する</span>　</label> 
+          <span>ログイン情報を記憶する</span></label> 
           <input type="submit" name="commit" value="ログイン" class="btn btn-primary btn-block btn-form" data-disable-with="ログイン">
     </form> 
      <% end %>
