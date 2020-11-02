@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 protect_from_forgery
-before_action :correct_user ,only: [:create,:destroy]
+before_action :correct_user ,only: [:new,:create,:destroy]
 before_action :limitation_correct_user ,only: [:edit]
 
       def index
@@ -11,7 +11,7 @@ before_action :limitation_correct_user ,only: [:edit]
       end
       
       def show
-          @user = User.find(params[:id])
+          @user = User.find(params[:user_id])
           @task = Task.find(params[:id])
       end
       
@@ -68,7 +68,7 @@ before_action :limitation_correct_user ,only: [:edit]
       end
       
      def correct_user
-        unless current_user?(@user)
+        unless @current_user.id == params[:user_id].to_i
         flash[:danger] = "他のユーザーのタスクは作成できません"
          redirect_to(root_url) unless current_user?(@user)
         end
