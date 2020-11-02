@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   before_action :logged_in_user,only: [:show,:edit,:update,:destroy]
   before_action :correct_user,only:[:edit,:update]
   before_action :admin_or_correct_user,only:[:show,:edit,:update]
-  before_action :admin_user,only: [:index,:new]
+  before_action :admin_user,only: [:new]
+  before_action :admin_user_index,only: [:index]
+
   
   def index
          @users = User.paginate(page:params[:page])
@@ -77,6 +79,11 @@ class UsersController < ApplicationController
       redirect_to user_url(current_user) unless current_user.admin?
       flash[:danger] = "既にログインしています。"
     end
+    
+    def admin_user_index
+      redirect_to (root_url) unless current_user.admin?
+    end
+    
 
     def admin_or_correct_user
       @user = User.find(params[:user_id]) if @user.blank?
